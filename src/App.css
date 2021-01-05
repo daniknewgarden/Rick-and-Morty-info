@@ -1,3 +1,11 @@
 .App {
   text-align: center;
+  padding: 50px;
+}
+
+.options {
+  display: grid;
+  place-items: start;
+
+  grid-gap: 12px;
 }
