@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 type TitleProps = {
   text: string;
   className?: string;
-  size?: "small" | "big";
+  size?: "big" | "small";
 };
 
 const Title: React.FC<TitleProps> = ({ text, className }) => (
