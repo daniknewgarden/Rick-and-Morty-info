@@ -2,6 +2,7 @@ import React from "react";
 //styled components
 import styled, { css } from "styled-components";
 
+//Component
 type SubtitleProps = {
   text: string;
   className?: string;
@@ -12,6 +13,7 @@ const Subtitle: React.FC<SubtitleProps> = ({ text, className }) => (
   <h2 className={className}>{text}</h2>
 );
 
+//Styles
 const sizes = {
   big: css`
     font-size: 16px;
