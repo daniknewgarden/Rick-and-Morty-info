@@ -6,7 +6,7 @@ import Title from "./Components/Title";
 function App() {
   return (
     <div className="App">
-      <Title text="Hello"></Title>
+      <Title text="Book hotel"></Title>
     </div>
   );
 }
