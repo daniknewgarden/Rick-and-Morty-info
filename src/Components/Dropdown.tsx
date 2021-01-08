@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 type DropdownProps = {
+  ariaLabel: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   listItems: any;
   className?: string;
@@ -12,6 +13,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   onChange,
   listItems,
   className,
+  ariaLabel,
 }) => {
   const [opened, setOpened] = useState<boolean>(false);
 
@@ -30,6 +32,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         placeholder="Search"
         onChange={onChange}
         onFocus={openMenu}
+        aria-label={ariaLabel}
       />
       {opened && (
         <div className="menu">

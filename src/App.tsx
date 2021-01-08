@@ -77,7 +77,11 @@ function App() {
       <Title text="Book hotel" />
       <Subtitle text="Look for any hotels and choose the most comfortable" />
       <div className="content">
-        <Dropdown onChange={handleChange} listItems={hotelItems} />
+        <Dropdown
+          onChange={handleChange}
+          listItems={hotelItems}
+          ariaLabel="Search hotel"
+        />
         <div className="options">
           <Checkbox name="pets" text="Pets" onCheck={handleCheck} />
           <Checkbox name="children" text="Children" onCheck={handleCheck} />
