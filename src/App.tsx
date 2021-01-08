@@ -5,6 +5,7 @@ import Button from "./Components/Button";
 import Checkbox from "./Components/Checkbox";
 import Dropdown from "./Components/Dropdown";
 import DropdownItem from "./Components/DropdownItem";
+import RangeDatePicker from "./Components/RangeDatePicker";
 import Subtitle from "./Components/Subtitle";
 //Components
 import Title from "./Components/Title";
@@ -81,6 +82,7 @@ function App() {
           <Checkbox name="pets" text="Pets" onCheck={handleCheck} />
           <Checkbox name="children" text="Children" onCheck={handleCheck} />
         </div>
+        <RangeDatePicker />
         <Button callBack={handleClick} text="Book now" ariaLabel={"Button"} />
       </div>
     </div>
