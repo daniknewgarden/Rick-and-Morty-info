@@ -3,23 +3,23 @@ import React from "react";
 import styled from "styled-components";
 
 type DropdownItemProps = {
-  name: string;
-  region: string;
+  title: string;
+  subtitle: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
 };
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
-  name,
-  region,
+  title,
+  subtitle,
   onClick,
   className,
 }) => {
   return (
     <li className={className}>
       <button onClick={onClick}>
-        {name}
-        <span className="subtitle">{region}</span>
+        {title}
+        <span className="subtitle">{subtitle}</span>
       </button>
     </li>
   );
