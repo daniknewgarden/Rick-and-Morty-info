@@ -5,43 +5,27 @@ import Button from "./Components/Button";
 import Checkbox from "./Components/Checkbox";
 import Dropdown from "./Components/Dropdown";
 import DropdownItem from "./Components/DropdownItem";
-import RangeDatePicker from "./Components/RangeDatePicker";
 import Subtitle from "./Components/Subtitle";
 //Components
 import Title from "./Components/Title";
 
+import { useQuery } from "@apollo/client";
+import GET_CHARACTERS from "./GraphQL/getCharacters";
+
 //API call types
-type hotelsList = {
-  id: number;
+type Character = {
+  id: string;
   name: string;
-  parents: string;
-  region: {
-    id: number;
-    name: string;
-  };
+  status: "Alive" | "Dead" | "unknown";
+  __typename: string;
 };
 
 function App() {
-  const [hotels] = useState<Array<hotelsList>>([
-    {
-      id: 62566,
-      name: "Thessaly",
-      parents: "Греция",
-      region: {
-        id: 30,
-        name: "Thessaloniki",
-      },
-    },
-    {
-      id: 616,
-      name: "Thessaloniki",
-      parents: "Греция",
-      region: {
-        id: 30,
-        name: "Thessaloniki",
-      },
-    },
-  ]);
+  const [inputValue, setInputValue] = useState("");
+
+  const { data, loading, error, refetch } = useQuery(GET_CHARACTERS, {
+    variables: { name: inputValue },
+  });
 
   const handleClick = () => {
     console.log("click");
@@ -55,19 +39,21 @@ function App() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
+    setInputValue(e.target.value);
+    refetch();
   };
 
-  const handleChoose = (item: any) => {
-    console.log(item);
+  const handleChoose = (itemId: String) => {
+    console.log(itemId);
   };
 
-  const hotelItems: Array<React.ReactElement> = hotels.map(
-    (item: hotelsList, index: number) => (
+  const Items: Array<React.ReactElement> = data?.characters.results.map(
+    (item: Character) => (
       <DropdownItem
-        onClick={() => handleChoose(item)}
-        name={item.name}
-        region={item.region.name}
-        key={index}
+        key={item.id}
+        title={item.name}
+        subtitle={item.status}
+        onClick={() => handleChoose(item.id)}
       />
     )
   );
@@ -79,14 +65,13 @@ function App() {
       <div className="content">
         <Dropdown
           onChange={handleChange}
-          listItems={hotelItems}
+          listItems={Items}
           ariaLabel="Search hotel"
         />
         <div className="options">
           <Checkbox name="pets" text="Pets" onCheck={handleCheck} />
           <Checkbox name="children" text="Children" onCheck={handleCheck} />
         </div>
-        <RangeDatePicker />
         <Button callBack={handleClick} text="Book now" ariaLabel={"Button"} />
       </div>
     </div>
