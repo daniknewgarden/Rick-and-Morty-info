@@ -23,7 +23,7 @@ type Character = {
 function App() {
   const [inputValue, setInputValue] = useState("");
 
-  const { data, loading, error, refetch } = useQuery(GET_CHARACTERS, {
+  const { data, loading, error } = useQuery(GET_CHARACTERS, {
     variables: { name: inputValue },
   });
 
@@ -40,7 +40,6 @@ function App() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setInputValue(e.target.value);
-    refetch();
   };
 
   const handleChoose = (itemId: String) => {
