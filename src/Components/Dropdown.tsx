@@ -76,7 +76,9 @@ const StyledDropdown = styled(Dropdown)`
   }
 
   .menu {
-    padding: 8px 11px 18px;
+    padding: 8px 11px;
+    max-height: 150px;
+    overflow: auto;
     ul {
       margin: 0;
       padding: 0;
