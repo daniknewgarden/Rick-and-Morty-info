@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 //Styled components
 import styled from "styled-components";
+import { useClickOutside } from "../Hooks/useClickOutside";
 
 type DropdownProps = {
   ariaLabel: string;
@@ -17,25 +18,32 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [opened, setOpened] = useState<boolean>(false);
 
-  const openMenu = (): void => {
-    setOpened(true);
+  const menuRef = useRef<HTMLDivElement>(null!);
+
+  const toggleMenu = (): void => {
+    setOpened(!opened);
   };
+
+  useClickOutside(menuRef, toggleMenu);
 
   useEffect(() => {
     opened ? console.log("Menu opened") : console.log("Menu closed");
   }, [opened]);
 
   return (
-    <div className={`${className} ${opened ? "opened" : "closed"}`}>
+    <div
+      className={`${className} ${opened ? "opened" : "closed"}`}
+      ref={menuRef}
+    >
       <input
         type="search"
         placeholder="Search"
         onChange={onChange}
-        onFocus={openMenu}
+        onFocus={toggleMenu}
         aria-label={ariaLabel}
       />
       {opened && (
-        <div className="menu">
+        <div className="menu" onClick={toggleMenu}>
           <ul>{listItems}</ul>
         </div>
       )}
