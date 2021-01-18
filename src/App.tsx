@@ -59,8 +59,10 @@ function App() {
 
   return (
     <div className="App">
-      <Title text="Book hotel" />
-      <Subtitle text="Look for any hotels and choose the most comfortable" />
+      <Title text="Search for characters" />
+      <Subtitle
+        text={`Search for all the characters from "Rick and Morty" and get information about them`}
+      />
       <div className="content">
         <Dropdown
           onChange={handleChange}
@@ -77,7 +79,11 @@ function App() {
             onCheck={handleCheck}
           />
         </div>
-        <Button callBack={handleClick} text="Book now" ariaLabel={"Button"} />
+        <Button
+          callBack={handleClick}
+          text="Get info"
+          ariaLabel={"Submit button"}
+        />
       </div>
     </div>
   );
