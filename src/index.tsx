@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+//Routing
+import { BrowserRouter as Router } from "react-router-dom";
 //Graphql
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
@@ -14,7 +16,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
