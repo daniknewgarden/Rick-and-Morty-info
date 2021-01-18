@@ -1,10 +1,18 @@
 import { gql } from "@apollo/client";
 
 const GET_CHARACTER_INFO = gql`
-  query getCharacters($id: String) {
-    character (id: $id) {
+  query getCharacterInfo($id: ID!, $image: Boolean!, $episode: Boolean!) {
+    character(id: $id) {
       name
-      type
+      status
+      species
+      gender
+      created
+      image @include(if: $image)
+      episode @include(if: $episode) {
+        name
+        air_date
+      }
     }
   }
 `;
