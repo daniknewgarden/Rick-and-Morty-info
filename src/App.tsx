@@ -23,8 +23,8 @@ type Character = {
 function App() {
   const [inputValue, setInputValue] = useState("");
 
-  const { data, loading, error } = useQuery(GET_CHARACTERS, {
-    variables: { name: inputValue },
+  const { data, loading } = useQuery(GET_CHARACTERS, {
+    variables: { name: inputValue, image: false },
   });
 
   const handleClick = () => {
@@ -64,12 +64,18 @@ function App() {
       <div className="content">
         <Dropdown
           onChange={handleChange}
-          listItems={Items}
+          listItems={
+            Items ? Items : loading ? "Loading..." : "Nothing found :("
+          }
           ariaLabel="Search hotel"
         />
         <div className="options">
-          <Checkbox name="pets" text="Pets" onCheck={handleCheck} />
-          <Checkbox name="children" text="Children" onCheck={handleCheck} />
+          <Checkbox name="image" text="Load image" onCheck={handleCheck} />
+          <Checkbox
+            name="children"
+            text="Load episodes"
+            onCheck={handleCheck}
+          />
         </div>
         <Button callBack={handleClick} text="Book now" ariaLabel={"Button"} />
       </div>
