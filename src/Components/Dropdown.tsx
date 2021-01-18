@@ -43,7 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         aria-label={ariaLabel}
       />
       {opened && (
-        <div className="menu" onClick={toggleMenu}>
+        <div className="menu">
           <ul>{listItems}</ul>
         </div>
       )}
