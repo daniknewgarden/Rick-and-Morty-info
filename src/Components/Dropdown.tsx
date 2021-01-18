@@ -18,13 +18,14 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [opened, setOpened] = useState<boolean>(false);
 
-  const menuRef = useRef<HTMLDivElement>(null!);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = (): void => {
     setOpened(!opened);
   };
 
-  useClickOutside(menuRef, toggleMenu);
+  //useClickOutside hook, see docs https://github.com/daniknewgarden/amazing-react-hooks#useclickoutside-
+  useClickOutside({ ref: menuRef, callback: toggleMenu, enabled: opened });
 
   useEffect(() => {
     opened ? console.log("Menu opened") : console.log("Menu closed");
@@ -43,7 +44,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         aria-label={ariaLabel}
       />
       {opened && (
-        <div className="menu" onClick={toggleMenu}>
+        <div className="menu">
           <ul>{listItems}</ul>
         </div>
       )}
