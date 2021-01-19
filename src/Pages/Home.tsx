@@ -14,9 +14,9 @@ import GET_CHARACTERS from "../GraphQL/getCharacters";
 
 //Props types
 type HomePageTypes = {
-  setCharacterId: (id: String) => void;
-  setLoadImage: (value: Boolean) => void;
-  setLoadEpisode: (value: Boolean) => void;
+  setCharacterId: (id: string) => void;
+  setLoadImage?: (value: Boolean) => void;
+  setLoadEpisode?: (value: Boolean) => void;
 };
 
 //API call types
@@ -27,7 +27,11 @@ type Character = {
   __typename: string;
 };
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<HomePageTypes> = ({
+  setCharacterId,
+  setLoadImage,
+  setLoadEpisode,
+}) => {
   const history = useHistory();
 
   const handleHistory = (): void => {
@@ -51,8 +55,8 @@ const HomePage: React.FC = () => {
       : console.log(`Removed ${e.target.value}`);
   };
 
-  const handleChoose = (itemId: String) => {
-    console.log(itemId);
+  const handleChoose = (itemId: string) => {
+    setCharacterId(itemId);
   };
 
   const Items: Array<React.ReactElement> = data?.characters.results.map(

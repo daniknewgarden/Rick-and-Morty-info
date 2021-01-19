@@ -9,7 +9,7 @@ import { useQuery } from "@apollo/client";
 import GET_CHARACTER_INFO from "../GraphQL/getCharacterInfo";
 
 type InfoPageTypes = {
-  id: String;
+  id: string;
   loadImage: Boolean;
   loadEpisode: Boolean;
 };

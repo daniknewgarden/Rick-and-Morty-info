@@ -14,17 +14,21 @@ function App() {
   }, []);
 
   //States
-  const [characterId, setCharacterId] = useState<string | null>(null);
+  const [characterId, setCharacterId] = useState<string>("1");
   const [loadImage, setLoadImage] = useState<boolean>(false);
   const [loadEpisode, setLoadEpisode] = useState<boolean>(false);
 
   return (
     <div className="App">
       <Route path="/home">
-        <HomePage />
+        <HomePage setCharacterId={(id: string) => setCharacterId(id)} />
       </Route>
       <Route path="/info">
-        <InfoPage id="1" loadImage={loadImage} loadEpisode={loadEpisode} />
+        <InfoPage
+          id={characterId}
+          loadImage={loadImage}
+          loadEpisode={loadEpisode}
+        />
       </Route>
     </div>
   );
