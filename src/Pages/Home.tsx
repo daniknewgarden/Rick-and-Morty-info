@@ -15,7 +15,7 @@ import GET_CHARACTERS from "../GraphQL/getCharacters";
 //Props types
 type HomePageTypes = {
   setCharacterId: (id: string) => void;
-  setLoadImage?: (value: Boolean) => void;
+  setLoadImage: (value: boolean) => void;
   setLoadEpisode?: (value: Boolean) => void;
 };
 
@@ -49,10 +49,8 @@ const HomePage: React.FC<HomePageTypes> = ({
     setInputValue(e.target.value);
   };
 
-  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.checked
-      ? console.log(`Added ${e.target.value}`)
-      : console.log(`Removed ${e.target.value}`);
+  const toggleLoadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.checked ? setLoadImage(true) : setLoadImage(false);
   };
 
   const handleChoose = (itemId: string) => {
@@ -84,12 +82,8 @@ const HomePage: React.FC<HomePageTypes> = ({
           ariaLabel="Search hotel"
         />
         <div className="options">
-          <Checkbox name="image" text="Load image" onCheck={handleCheck} />
-          <Checkbox
-            name="children"
-            text="Load episodes"
-            onCheck={handleCheck}
-          />
+          <Checkbox name="image" text="Load image" onCheck={toggleLoadImage} />
+          <Checkbox name="episode" text="Load episodes" onCheck={() => null} />
         </div>
         <Button
           callBack={handleHistory}

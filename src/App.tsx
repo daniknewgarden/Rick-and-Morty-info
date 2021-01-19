@@ -21,7 +21,10 @@ function App() {
   return (
     <div className="App">
       <Route path="/home">
-        <HomePage setCharacterId={(id: string) => setCharacterId(id)} />
+        <HomePage
+          setCharacterId={(id: string) => setCharacterId(id)}
+          setLoadImage={(value: boolean) => setLoadImage(value)}
+        />
       </Route>
       <Route path="/info">
         <InfoPage

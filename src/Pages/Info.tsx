@@ -10,7 +10,7 @@ import GET_CHARACTER_INFO from "../GraphQL/getCharacterInfo";
 
 type InfoPageTypes = {
   id: string;
-  loadImage: Boolean;
+  loadImage: boolean;
   loadEpisode: Boolean;
 };
 
