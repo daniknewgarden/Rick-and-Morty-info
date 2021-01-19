@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 //Routing
 import { useHistory } from "react-router-dom";
 //Components
+import Avatar from "../Components/Avatar";
+import DescriptionItem from "../Components/DescriptionItem";
+import ListCard from "../Components/ListCard";
 import Button from "../Components/Button";
-import Title from "../Components/Title";
 //GraphQL
 import { useQuery } from "@apollo/client";
 import GET_CHARACTER_INFO from "../GraphQL/getCharacterInfo";
@@ -25,13 +27,38 @@ const InfoPage: React.FC<InfoPageTypes> = ({
     variables: { id: id, image: loadImage, episode: loadEpisode },
   });
 
+  const Episodes: Array<React.ReactElement> = data?.character.episode?.map(
+    (item: any, index: number) => <li key={index}>{item.name}</li>
+  );
+
   return (
     <div>
-      <Title text={data ? data.character.name : loading ? "Loading" : error} />
+      {data && (
+        <>
+          <Avatar
+            image={loadImage ? data.character.image : null}
+            name={data.character.name}
+            subtitle={data.character.status}
+          />
+
+          <div>
+            <DescriptionItem
+              item="Species"
+              description={data.character.species}
+            />
+            <DescriptionItem
+              item="Gender"
+              description={data.character.gender}
+            />
+          </div>
+          <ListCard title="Episodes" listItems={Episodes} />
+        </>
+      )}
       <Button
         callBack={() => history.push("/home")}
         text="Back to choose"
         ariaLabel="Back"
+        rounded={true}
       />
     </div>
   );
