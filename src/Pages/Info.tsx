@@ -11,7 +11,7 @@ import GET_CHARACTER_INFO from "../GraphQL/getCharacterInfo";
 type InfoPageTypes = {
   id: string;
   loadImage: boolean;
-  loadEpisode: Boolean;
+  loadEpisode: boolean;
 };
 
 const InfoPage: React.FC<InfoPageTypes> = ({

@@ -24,6 +24,7 @@ function App() {
         <HomePage
           setCharacterId={(id: string) => setCharacterId(id)}
           setLoadImage={(value: boolean) => setLoadImage(value)}
+          setLoadEpisode={(value: boolean) => setLoadEpisode(value)}
         />
       </Route>
       <Route path="/info">

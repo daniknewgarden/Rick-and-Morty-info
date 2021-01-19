@@ -16,7 +16,7 @@ import GET_CHARACTERS from "../GraphQL/getCharacters";
 type HomePageTypes = {
   setCharacterId: (id: string) => void;
   setLoadImage: (value: boolean) => void;
-  setLoadEpisode?: (value: Boolean) => void;
+  setLoadEpisode: (value: boolean) => void;
 };
 
 //API call types
@@ -53,6 +53,10 @@ const HomePage: React.FC<HomePageTypes> = ({
     e.target.checked ? setLoadImage(true) : setLoadImage(false);
   };
 
+  const toggleLoadEpisode = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.checked ? setLoadEpisode(true) : setLoadEpisode(false);
+  };
+
   const handleChoose = (itemId: string) => {
     setCharacterId(itemId);
   };
@@ -83,7 +87,11 @@ const HomePage: React.FC<HomePageTypes> = ({
         />
         <div className="options">
           <Checkbox name="image" text="Load image" onCheck={toggleLoadImage} />
-          <Checkbox name="episode" text="Load episodes" onCheck={() => null} />
+          <Checkbox
+            name="episode"
+            text="Load episodes"
+            onCheck={toggleLoadEpisode}
+          />
         </div>
         <Button
           callBack={handleHistory}
