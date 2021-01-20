@@ -10,6 +10,11 @@ type DropdownProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   listItems: any;
   className?: string;
+  // Custom styles
+  radiusSize?: string;
+  colorInput?: string;
+  colorSubtitle?: string;
+  colorShadow?: string;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -58,16 +63,18 @@ const Dropdown: React.FC<DropdownProps> = ({
 
 //Styles
 const StyledDropdown = styled(Dropdown)`
-  --size-radius: 8px;
-  --color-input: #f2f2f5;
-  --color-subtitle: #8e90a6;
+  --size-radius: ${({ radiusSize = "8px" }) => radiusSize};
+  --color-input: ${({ colorInput = "#f2f2f5" }) => colorInput};
+  --color-subtitle: ${({ colorSubtitle = "#8e90a6" }) => colorSubtitle};
+  --color-shadow: ${({ colorShadow = "rgba(40, 41, 61, 0.04)" }) =>
+    colorShadow};
 
   display: grid;
   padding: 4px;
   border-radius: var(--size-radius);
 
   &.opened {
-    box-shadow: 0px 0px 10px 2px rgba(40, 41, 61, 0.04);
+    box-shadow: 0px 0px 10px 2px var(--color-shadow);
   }
 
   input {
