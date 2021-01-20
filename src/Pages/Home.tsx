@@ -72,12 +72,13 @@ const HomePage: React.FC<HomePageTypes> = ({
     )
   );
   return (
-    <>
-      <Title text="Search for characters" />
+    <div className="home-page">
+      <Title text="Search for characters" className="home-page__title" />
       <Subtitle
-        text={`Search for all the characters from "Rick and Morty" and get information about them`}
+        text='Search for all the characters from "Rick and Morty" and get information about them'
+        className="home-page__subtitle"
       />
-      <div className="content">
+      <div className="home-page__controls">
         <Dropdown
           onChange={handleChange}
           listItems={
@@ -85,7 +86,7 @@ const HomePage: React.FC<HomePageTypes> = ({
           }
           ariaLabel="Search hotel"
         />
-        <div className="options">
+        <div className="home-page__options">
           <Checkbox name="image" text="Load image" onCheck={toggleLoadImage} />
           <Checkbox
             name="episode"
@@ -99,7 +100,7 @@ const HomePage: React.FC<HomePageTypes> = ({
           ariaLabel={"Submit button"}
         />
       </div>
-    </>
+    </div>
   );
 };
 

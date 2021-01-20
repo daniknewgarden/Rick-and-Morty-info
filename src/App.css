@@ -1,12 +1,46 @@
 .App {
   text-align: center;
   padding: 50px;
-
+  min-height: 100vh;
   display: grid;
   place-items: center;
 }
 
-.content {
+/* Styles for Home page */
+.home-page {
+  display: grid;
+  place-items: center;
+}
+
+/* Text */
+.home-page .home-page__title {
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.home-page .home-page__subtitle {
+  margin: 0;
+  margin-bottom: 64px;
+}
+
+/* Search input, checkbox, button wrapper */
+.home-page .home-page__controls {
+  width: 264px;
+  max-width: 264px;
+  display: grid;
+  grid-template: 1fr / auto;
+  grid-gap: 16px;
+}
+
+/* Checkbox wrapper*/
+.home-page .home-page__options {
+  padding: 0 17px;
+  display: grid;
+  grid-template: 1fr / auto;
+  grid-gap: 12px;
+}
+
+/* .content {
   margin-top: 64px;
   width: 264px;
 
@@ -18,4 +52,4 @@
   place-items: start;
 
   grid-gap: 12px;
-}
+} */

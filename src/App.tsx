@@ -7,6 +7,7 @@ import { Route, useHistory } from "react-router-dom";
 import HomePage from "./Pages/Home";
 import InfoPage from "./Pages/Info";
 function App() {
+  //Routing
   const history = useHistory();
 
   useEffect(() => {
