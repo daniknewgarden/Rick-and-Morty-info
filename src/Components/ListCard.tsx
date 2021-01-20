@@ -8,6 +8,11 @@ type ListCardProps = {
   title: string;
   listItems: Array<React.ReactElement>;
   className?: string;
+  // Custom styles
+  radiusSize?: string;
+  colorText?: string;
+  colorItem?: string;
+  colorBorder?: string;
 };
 
 const ListCard: React.FC<ListCardProps> = ({ title, className, listItems }) => {
@@ -22,10 +27,10 @@ const ListCard: React.FC<ListCardProps> = ({ title, className, listItems }) => {
 };
 
 const StyledListCard = styled(ListCard)`
-  --color-text: #000000;
-  --color-item: #555770;
-  --color-border: #e3e4eb;
-  --size-radius: 16px;
+  --color-text: ${({ colorText = "#000000" }) => colorText};
+  --color-item: ${({ colorItem = "#555770" }) => colorItem};
+  --color-border: ${({ colorBorder = "#e3e4eb" }) => colorBorder};
+  --size-radius: ${({ radiusSize = "16px" }) => radiusSize};
 
   text-align: left;
   padding: 40px;
