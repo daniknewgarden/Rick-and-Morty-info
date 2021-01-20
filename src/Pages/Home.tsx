@@ -59,8 +59,9 @@ const HomePage: React.FC<HomePageTypes> = ({
     e.target.checked ? setLoadEpisode(true) : setLoadEpisode(false);
   };
 
-  const handleChoose = (itemId: string) => {
-    setCharacterId(itemId);
+  const handleChoose = (item: Character) => {
+    setInputValue(item.name);
+    setCharacterId(item.id);
   };
 
   const Items: Array<React.ReactElement> = data?.characters.results.map(
@@ -69,7 +70,7 @@ const HomePage: React.FC<HomePageTypes> = ({
         key={item.id}
         title={item.name}
         subtitle={item.status}
-        onClick={() => handleChoose(item.id)}
+        onClick={() => handleChoose(item)}
       />
     )
   );
@@ -82,6 +83,7 @@ const HomePage: React.FC<HomePageTypes> = ({
       />
       <div className="home-page__controls">
         <Dropdown
+          value={inputValue}
           onChange={handleChange}
           listItems={
             Items ? Items : loading ? "Loading..." : "Nothing found :("

@@ -6,6 +6,7 @@ import { useClickOutside } from "../Hooks/useClickOutside";
 import { Scrollbars } from "react-custom-scrollbars";
 
 type DropdownProps = {
+  value: string;
   ariaLabel: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   listItems: any;
@@ -18,6 +19,7 @@ type DropdownProps = {
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
+  value,
   onChange,
   listItems,
   className,
@@ -46,6 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <input
         type="search"
         placeholder="Search"
+        value={value}
         onChange={onChange}
         onFocus={toggleMenu}
         aria-label={ariaLabel}
