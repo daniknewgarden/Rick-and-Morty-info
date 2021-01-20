@@ -34,6 +34,8 @@ const InfoPage: React.FC<InfoPageTypes> = ({
   return (
     <div className="info-page">
       <div className="info-page__content">
+        {error && "Something went wrong :( Please try again"}
+        {loading && "Loading"}
         {data && (
           <>
             <Avatar
@@ -54,7 +56,11 @@ const InfoPage: React.FC<InfoPageTypes> = ({
             </ul>
 
             {loadEpisode && (
-              <ListCard title="Episodes" listItems={Episodes} className="info-page__card" />
+              <ListCard
+                title="Episodes"
+                listItems={Episodes}
+                className="info-page__card"
+              />
             )}
           </>
         )}

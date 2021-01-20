@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   //States
-  const [characterId, setCharacterId] = useState<string>("1");
+  const [characterId, setCharacterId] = useState<string | null>(null);
   const [loadImage, setLoadImage] = useState<boolean>(false);
   const [loadEpisode, setLoadEpisode] = useState<boolean>(false);
 
@@ -23,18 +23,21 @@ function App() {
     <div className="App">
       <Route path="/home">
         <HomePage
+          selectedCharacter={characterId}
           setCharacterId={(id: string) => setCharacterId(id)}
           setLoadImage={(value: boolean) => setLoadImage(value)}
           setLoadEpisode={(value: boolean) => setLoadEpisode(value)}
         />
       </Route>
-      <Route path="/info">
-        <InfoPage
-          id={characterId}
-          loadImage={loadImage}
-          loadEpisode={loadEpisode}
-        />
-      </Route>
+      {characterId && (
+        <Route path="/info">
+          <InfoPage
+            id={characterId}
+            loadImage={loadImage}
+            loadEpisode={loadEpisode}
+          />
+        </Route>
+      )}
     </div>
   );
 }

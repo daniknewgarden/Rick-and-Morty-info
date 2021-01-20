@@ -14,6 +14,7 @@ import GET_CHARACTERS from "../GraphQL/getCharacters";
 
 //Props types
 type HomePageTypes = {
+  selectedCharacter: string | null;
   setCharacterId: (id: string) => void;
   setLoadImage: (value: boolean) => void;
   setLoadEpisode: (value: boolean) => void;
@@ -28,6 +29,7 @@ type Character = {
 };
 
 const HomePage: React.FC<HomePageTypes> = ({
+  selectedCharacter,
   setCharacterId,
   setLoadImage,
   setLoadEpisode,
@@ -86,19 +88,27 @@ const HomePage: React.FC<HomePageTypes> = ({
           }
           ariaLabel="Search hotel"
         />
-        <div className="home-page__options">
-          <Checkbox name="image" text="Load image" onCheck={toggleLoadImage} />
-          <Checkbox
-            name="episode"
-            text="Load episodes"
-            onCheck={toggleLoadEpisode}
-          />
-        </div>
-        <Button
-          callBack={handleHistory}
-          text="Get info"
-          ariaLabel={"Submit button"}
-        />
+        {selectedCharacter && (
+          <>
+            <div className="home-page__options">
+              <Checkbox
+                name="image"
+                text="Load image"
+                onCheck={toggleLoadImage}
+              />
+              <Checkbox
+                name="episode"
+                text="Load episodes"
+                onCheck={toggleLoadEpisode}
+              />
+            </div>
+            <Button
+              callBack={handleHistory}
+              text="Get info"
+              ariaLabel={"Submit button"}
+            />
+          </>
+        )}
       </div>
     </div>
   );
