@@ -7,6 +7,7 @@ type ButtonProps = {
   text?: string;
   ariaLabel?: string;
   className?: string;
+  // Custom styles
   size?: "big" | "small";
   rounded?: boolean;
   transparent?: boolean;
