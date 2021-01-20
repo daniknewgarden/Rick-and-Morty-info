@@ -65,7 +65,7 @@
 }
 
 /* Adaptive */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
   .App {
     padding: 15px;
   }
@@ -79,5 +79,20 @@
 
   .home-page .home-page__subtitle {
     font-size: 14px;
+  }
+
+  /* Info page */
+  .info-page {
+    grid-template-columns: 100%;
+  }
+
+  /* Description list */
+  .info-page .info-page__list {
+    padding-left: 15px;
+  }
+
+  /* Episodes card */
+  .info-page .info-page__card {
+    padding: 15px;
   }
 }

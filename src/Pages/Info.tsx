@@ -53,7 +53,9 @@ const InfoPage: React.FC<InfoPageTypes> = ({
               />
             </ul>
 
-            {loadEpisode && <ListCard title="Episodes" listItems={Episodes} />}
+            {loadEpisode && (
+              <ListCard title="Episodes" listItems={Episodes} className="info-page__card" />
+            )}
           </>
         )}
         <Button
