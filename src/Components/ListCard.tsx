@@ -1,6 +1,8 @@
 import React from "react";
 //Styled components
 import styled from "styled-components";
+//Custom scrollbar
+import { Scrollbars } from "react-custom-scrollbars";
 
 type ListCardProps = {
   title: string;
@@ -12,7 +14,9 @@ const ListCard: React.FC<ListCardProps> = ({ title, className, listItems }) => {
   return (
     <div className={className}>
       <h2>{title}</h2>
-      <ul>{listItems}</ul>
+      <Scrollbars style={{ height: 184 }}>
+        <ul>{listItems}</ul>
+      </Scrollbars>
     </div>
   );
 };
