@@ -24,7 +24,7 @@ const StyledListCard = styled(ListCard)`
   --size-radius: 16px;
 
   text-align: left;
-  padding: 56px 40px;
+  padding: 40px;
   border: 2px solid var(--color-border);
   border-radius: var(--size-radius);
 
