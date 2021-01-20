@@ -30,6 +30,8 @@ const StyledAvatar = styled(Avatar)`
   --color-border: #ebebf0;
   --size-avatar: 80px;
 
+  padding: 24px;
+
   h2,
   p {
     margin: 0;
