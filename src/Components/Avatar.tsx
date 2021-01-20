@@ -6,8 +6,8 @@ type AvatarProps = {
   image?: string;
   name: string;
   subtitle: string;
-  className?: string;
   // Custom styles
+  className?: string;
   nameColor?: string;
   subtitleColor?: string;
   borderColor?: string;

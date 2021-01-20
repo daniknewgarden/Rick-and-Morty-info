@@ -6,8 +6,8 @@ type DropdownItemProps = {
   title: string;
   subtitle: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  className?: string;
   //Custom styles
+  className?: string;
   colorTitle?: string;
   colorSubtitle?: string;
 };

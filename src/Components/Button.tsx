@@ -6,8 +6,8 @@ type ButtonProps = {
   callBack: (event: React.MouseEvent<HTMLButtonElement>) => void;
   text?: string;
   ariaLabel?: string;
-  className?: string;
   // Custom styles
+  className?: string;
   size?: "big" | "small";
   rounded?: boolean;
   transparent?: boolean;

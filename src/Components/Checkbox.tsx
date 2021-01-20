@@ -6,11 +6,11 @@ type CheckBoxProps = {
   onCheck: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   text: string;
-  className?: string;
   //Default states
   disabled?: boolean;
   defaultChecked?: true;
   // Custom styles
+  className?: string;
   colorDefault?: string;
   colorHover?: string;
   colorChecked?: string;

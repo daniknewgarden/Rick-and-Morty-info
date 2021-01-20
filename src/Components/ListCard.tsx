@@ -7,8 +7,8 @@ import { Scrollbars } from "react-custom-scrollbars";
 type ListCardProps = {
   title: string;
   listItems: Array<React.ReactElement>;
-  className?: string;
   // Custom styles
+  className?: string;
   radiusSize?: string;
   colorText?: string;
   colorItem?: string;

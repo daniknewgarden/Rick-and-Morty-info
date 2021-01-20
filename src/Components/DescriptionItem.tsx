@@ -5,8 +5,8 @@ import styled from "styled-components";
 type DescriptionItemProps = {
   item: string;
   description: string;
-  className?: string;
   // Custom styles
+  className?: string;
   colorItem?: string;
   colorDescription?: string;
 };

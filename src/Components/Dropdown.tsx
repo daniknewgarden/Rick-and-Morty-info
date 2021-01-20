@@ -9,8 +9,8 @@ type DropdownProps = {
   ariaLabel: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   listItems: any;
-  className?: string;
   // Custom styles
+  className?: string;
   radiusSize?: string;
   colorInput?: string;
   colorSubtitle?: string;
