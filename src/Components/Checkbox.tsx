@@ -32,7 +32,7 @@ const StyledCheckbox = styled(Checkbox)`
   display: grid;
   grid-template: auto / 16px 1fr;
   grid-gap: 14px;
-  place-items: center;
+  place-items: center start;
 
   font-size: 16px;
   line-height: 150%;
