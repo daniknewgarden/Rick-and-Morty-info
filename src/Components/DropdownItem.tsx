@@ -7,6 +7,9 @@ type DropdownItemProps = {
   subtitle: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  //Custom styles
+  colorTitle?: string;
+  colorSubtitle?: string;
 };
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -26,7 +29,8 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 };
 
 const StyledDropdownItem = styled(DropdownItem)`
-  --color-text: #000;
+  --color-text: ${({ colorTitle = "#000" }) => colorTitle};
+  --color-subtitle: ${({ colorSubtitle = "#8e90a6" }) => colorSubtitle};
 
   list-style: none;
 
