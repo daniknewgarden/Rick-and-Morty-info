@@ -40,16 +40,26 @@
   grid-gap: 12px;
 }
 
-/* .content {
-  margin-top: 64px;
-  width: 264px;
-
+/* Styles for Info page */
+.info-page {
+  width: 100%;
   display: grid;
+  grid-template-columns: 474px;
+  place-content: center;
 }
 
-.options {
+/* Info page content wrapper */
+.info-page .info-page__content {
+  display: grid;
+  grid-gap: 16px;
+}
+
+/* Description list */
+.info-page .info-page__list {
+  padding: 0;
+  padding-left: 40px;
+  margin: 0;
   display: grid;
   place-items: start;
-
-  grid-gap: 12px;
-} */
+  grid-gap: 8px;
+}

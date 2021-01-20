@@ -32,34 +32,37 @@ const InfoPage: React.FC<InfoPageTypes> = ({
   );
 
   return (
-    <div>
-      {data && (
-        <>
-          <Avatar
-            image={loadImage ? data.character.image : null}
-            name={data.character.name}
-            subtitle={data.character.status}
-          />
+    <div className="info-page">
+      <div className="info-page__content">
+        {data && (
+          <>
+            <Avatar
+              image={loadImage ? data.character.image : null}
+              name={data.character.name}
+              subtitle={data.character.status}
+            />
 
-          <div>
-            <DescriptionItem
-              item="Species"
-              description={data.character.species}
-            />
-            <DescriptionItem
-              item="Gender"
-              description={data.character.gender}
-            />
-          </div>
-          {loadEpisode && <ListCard title="Episodes" listItems={Episodes} />}
-        </>
-      )}
-      <Button
-        callBack={() => history.push("/home")}
-        text="Back to choose"
-        ariaLabel="Back"
-        rounded={true}
-      />
+            <ul className="info-page__list">
+              <DescriptionItem
+                item="Species"
+                description={data.character.species}
+              />
+              <DescriptionItem
+                item="Gender"
+                description={data.character.gender}
+              />
+            </ul>
+
+            {loadEpisode && <ListCard title="Episodes" listItems={Episodes} />}
+          </>
+        )}
+        <Button
+          callBack={() => history.push("/home")}
+          text="Back to choose"
+          ariaLabel="Back"
+          rounded={true}
+        />
+      </div>
     </div>
   );
 };
