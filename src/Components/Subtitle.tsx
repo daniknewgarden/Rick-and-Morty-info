@@ -5,8 +5,10 @@ import styled, { css } from "styled-components";
 //Component
 type SubtitleProps = {
   text: string;
+  // Custom styles
   className?: string;
   size?: "big" | "small";
+  color?: string;
 };
 
 const Subtitle: React.FC<SubtitleProps> = ({ text, className }) => (
@@ -25,6 +27,10 @@ const sizes = {
 
 const StyledSubtitle = styled(Subtitle)`
   ${({ size = "big" }) => sizes[size]}
+
+  --color-text: ${({ color = "#555770" }) => color};
+
+  color: var(--color-text);
 
   text-align: center;
   font-weight: 400;
