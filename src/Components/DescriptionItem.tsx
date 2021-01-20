@@ -6,6 +6,9 @@ type DescriptionItemProps = {
   item: string;
   description: string;
   className?: string;
+  // Custom styles
+  colorItem?: string;
+  colorDescription?: string;
 };
 
 const DescriptionItem: React.FC<DescriptionItemProps> = ({
@@ -22,15 +25,19 @@ const DescriptionItem: React.FC<DescriptionItemProps> = ({
 };
 
 const StyledDescriptionItem = styled(DescriptionItem)`
-  list-style: none;
+  --color-item: ${({ colorItem = "#000" }) => colorItem};
+  --color-description: ${({ colorDescription = "#000" }) => colorDescription};
 
+  list-style: none;
   span {
+    color: var(--color-item);
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
     margin-right: 8px;
   }
 
+  color: var(--color-description);
   font-size: 12px;
   line-height: 15px;
 `;
