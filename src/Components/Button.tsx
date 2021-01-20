@@ -27,11 +27,13 @@ const Button: React.FC<ButtonProps> = ({
 const sizes = {
   big: css`
     font-size: 16px;
+    line-height: 24px;
 
     padding: 12px 24px;
   `,
   small: css`
     font-size: 14px;
+    line-height: 22px;
 
     padding: 8px 16px;
   `,
@@ -69,6 +71,8 @@ const StyledButton = styled(Button)`
 
   --color-text: #fff;
 
+  font-weight: 500;
+
   &:hover {
     --color-accent: #6690ff;
   }
@@ -90,8 +94,6 @@ const StyledButton = styled(Button)`
 
   ${({ transparent = false }) =>
     transparent ? background["transparent"] : background["filed"]}
-
-  font-weight: 500;
 `;
 
 export default StyledButton;
