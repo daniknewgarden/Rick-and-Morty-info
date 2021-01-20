@@ -51,7 +51,7 @@ const InfoPage: React.FC<InfoPageTypes> = ({
               description={data.character.gender}
             />
           </div>
-          <ListCard title="Episodes" listItems={Episodes} />
+          {loadEpisode && <ListCard title="Episodes" listItems={Episodes} />}
         </>
       )}
       <Button
