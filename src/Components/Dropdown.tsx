@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 //Styled components
 import styled from "styled-components";
 import { useClickOutside } from "../Hooks/useClickOutside";
+//Custom scrollbar
+import { Scrollbars } from "react-custom-scrollbars";
 
 type DropdownProps = {
   ariaLabel: string;
@@ -44,9 +46,11 @@ const Dropdown: React.FC<DropdownProps> = ({
         aria-label={ariaLabel}
       />
       {opened && (
-        <div className="menu">
-          <ul>{listItems}</ul>
-        </div>
+        <Scrollbars style={{ height: 150 }}>
+          <div className="menu">
+            <ul>{listItems}</ul>
+          </div>
+        </Scrollbars>
       )}
     </div>
   );
@@ -86,8 +90,6 @@ const StyledDropdown = styled(Dropdown)`
 
   .menu {
     padding: 8px 11px;
-    max-height: 150px;
-    overflow: auto;
     ul {
       margin: 0;
       padding: 0;
