@@ -63,3 +63,21 @@
   place-items: start;
   grid-gap: 8px;
 }
+
+/* Adaptive */
+@media screen and (max-width: 450px) {
+  .App {
+    padding: 15px;
+  }
+
+  /* Home page */
+
+  /* Text */
+  .home-page .home-page__title {
+    font-size: 40px;
+  }
+
+  .home-page .home-page__subtitle {
+    font-size: 14px;
+  }
+}
