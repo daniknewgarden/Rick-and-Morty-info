@@ -7,6 +7,11 @@ type AvatarProps = {
   name: string;
   subtitle: string;
   className?: string;
+  // Custom styles
+  nameColor?: string;
+  subtitleColor?: string;
+  borderColor?: string;
+  avatarSize?: string;
 };
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -25,10 +30,10 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 const StyledAvatar = styled(Avatar)`
-  --color-title: #000000;
-  --color-subtitle: #8e90a6;
-  --color-border: #ebebf0;
-  --size-avatar: 80px;
+  --color-title: ${({ nameColor = "#000000" }) => nameColor};
+  --color-subtitle: ${({ subtitleColor = "#8e90a6" }) => subtitleColor};
+  --color-border: ${({ borderColor = "#ebebf0" }) => borderColor};
+  --size-avatar: ${({ avatarSize = "80px" }) => avatarSize};
 
   padding: 24px;
 
