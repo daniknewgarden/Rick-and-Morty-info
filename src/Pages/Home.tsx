@@ -40,17 +40,20 @@ const HomePage: React.FC<HomePageTypes> = ({
     history.push("/info");
   };
 
-  const [inputValue, setInputValue] = useState("");
+  //States
+  const [searchInputValue, setSearchInputValue] = useState("");
 
+  //Graphql data
   const { data, loading } = useQuery(GET_CHARACTERS, {
-    variables: { name: inputValue, image: false },
+    variables: { name: searchInputValue, image: false },
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setInputValue(e.target.value);
+  //Changing dropdown input
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInputValue(e.target.value);
   };
 
+  //Checkboxes callbacks
   const toggleLoadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked ? setLoadImage(true) : setLoadImage(false);
   };
@@ -59,11 +62,13 @@ const HomePage: React.FC<HomePageTypes> = ({
     e.target.checked ? setLoadEpisode(true) : setLoadEpisode(false);
   };
 
+  // On dropdown choose option
   const handleChoose = (item: Character) => {
-    setInputValue(item.name);
+    setSearchInputValue(item.name);
     setCharacterId(item.id);
   };
 
+  // Dropdown list items
   const Items: Array<React.ReactElement> = data?.characters.results.map(
     (item: Character) => (
       <DropdownItem
@@ -74,6 +79,7 @@ const HomePage: React.FC<HomePageTypes> = ({
       />
     )
   );
+
   return (
     <div className="home-page">
       <Title text="Search for characters" className="home-page__title" />
@@ -83,8 +89,8 @@ const HomePage: React.FC<HomePageTypes> = ({
       />
       <div className="home-page__controls">
         <Dropdown
-          value={inputValue}
-          onChange={handleChange}
+          value={searchInputValue}
+          onChange={handleSearchChange}
           listItems={
             Items ? Items : loading ? "Loading..." : "Nothing found :("
           }
