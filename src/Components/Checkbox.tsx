@@ -8,7 +8,6 @@ type CheckBoxProps = {
   text: string;
   //Default states
   disabled?: boolean;
-  defaultChecked?: true;
   // Custom styles
   className?: string;
   colorDefault?: string;
@@ -22,7 +21,6 @@ const Checkbox: React.FunctionComponent<CheckBoxProps> = ({
   text,
   onCheck,
   className,
-  defaultChecked,
   disabled,
 }) => (
   <label htmlFor={name} className={className}>
@@ -32,7 +30,6 @@ const Checkbox: React.FunctionComponent<CheckBoxProps> = ({
       id={name}
       onChange={onCheck}
       value={text}
-      checked={defaultChecked}
       disabled={disabled}
     />
     {text}
