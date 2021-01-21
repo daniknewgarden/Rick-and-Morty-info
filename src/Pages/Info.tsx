@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //Routing
 import { useHistory } from "react-router-dom";
 //Components
@@ -14,12 +14,18 @@ type InfoPageTypes = {
   id: string;
   loadImage: boolean;
   loadEpisode: boolean;
+  setCharacterId: (id: null) => void;
+  setLoadImage: (value: boolean) => void;
+  setLoadEpisode: (value: boolean) => void;
 };
 
 const InfoPage: React.FC<InfoPageTypes> = ({
   id = "1",
   loadImage,
   loadEpisode,
+  setCharacterId,
+  setLoadImage,
+  setLoadEpisode,
 }) => {
   const history = useHistory();
 
@@ -30,6 +36,14 @@ const InfoPage: React.FC<InfoPageTypes> = ({
   const Episodes: Array<React.ReactElement> = data?.character.episode?.map(
     (item: any, index: number) => <li key={index}>{item.name}</li>
   );
+
+  useEffect(() => {
+    return () => {
+      setCharacterId(null);
+      setLoadImage(false);
+      setLoadEpisode(false);
+    };
+  }, []);
 
   return (
     <div className="info-page">

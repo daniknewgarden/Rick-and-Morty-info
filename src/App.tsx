@@ -35,6 +35,9 @@ function App() {
             id={characterId}
             loadImage={loadImage}
             loadEpisode={loadEpisode}
+            setCharacterId={(id: null) => setCharacterId(id)}
+            setLoadImage={(value: boolean) => setLoadImage(value)}
+            setLoadEpisode={(value: boolean) => setLoadEpisode(value)}
           />
         </Route>
       )}
