@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 
 export type ButtonProps = {
   callBack: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  text?: string;
-  ariaLabel?: string;
+  text: string;
+  ariaLabel: string;
   // Custom styles
   className?: string;
   big?: boolean;
@@ -22,8 +22,8 @@ export type ButtonProps = {
 };
 
 const Button: React.FC<ButtonProps> = ({
-  text,
-  ariaLabel,
+  text = "Button",
+  ariaLabel = "Click button",
   className,
   disabled,
   callBack,
@@ -91,7 +91,7 @@ const StyledButton = styled(Button)`
   --color-hover: ${({ colorHover = "#6690FF" }) => colorHover};
   --color-focus: ${({ colorFocus = "#254EDA" }) => colorFocus};
   --color-outline: ${({ colorOutline = "#6690FF" }) => colorOutline};
-  --color-disabled: ${({ colorDisabled = "#254eda" }) => colorDisabled};
+  --color-disabled: ${({ colorDisabled = "#E3E4EB" }) => colorDisabled};
   --color-text: ${({ colorText = "#fff" }) => colorText};
 
   --color: var(--color-main);
