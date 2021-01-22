@@ -2,7 +2,7 @@ import React from "react";
 //Styled components
 import styled from "styled-components";
 
-type DropdownItemProps = {
+export type DropdownItemProps = {
   title: string;
   subtitle: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -13,8 +13,8 @@ type DropdownItemProps = {
 };
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
-  title,
-  subtitle,
+  title = "Dropdown item",
+  subtitle = "Subtitle",
   onClick,
   className,
 }) => {
