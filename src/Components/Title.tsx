@@ -11,7 +11,7 @@ export type TitleProps = {
   color?: string;
 };
 
-const Title: React.FC<TitleProps> = ({ text, className }) => (
+const Title: React.FC<TitleProps> = ({ text = "Title", className }) => (
   <h1 className={className}>{text}</h1>
 );
 
