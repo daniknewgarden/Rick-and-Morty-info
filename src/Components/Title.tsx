@@ -3,7 +3,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 //Component
-type TitleProps = {
+export type TitleProps = {
   text: string;
   // Custom styles
   className?: string;
