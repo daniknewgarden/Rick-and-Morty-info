@@ -2,7 +2,7 @@ import React from "react";
 //Styled components
 import styled from "styled-components";
 
-type DescriptionItemProps = {
+export type DescriptionItemProps = {
   item: string;
   description: string;
   // Custom styles
@@ -12,8 +12,8 @@ type DescriptionItemProps = {
 };
 
 const DescriptionItem: React.FC<DescriptionItemProps> = ({
-  item,
-  description,
+  item = "Item",
+  description = "Description",
   className,
 }) => {
   return (
