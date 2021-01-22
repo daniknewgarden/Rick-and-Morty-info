@@ -2,7 +2,7 @@ import React from "react";
 //Styled components
 import styled from "styled-components";
 
-type AvatarProps = {
+export type AvatarProps = {
   image?: string;
   name: string;
   subtitle: string;
@@ -16,8 +16,8 @@ type AvatarProps = {
 
 const Avatar: React.FC<AvatarProps> = ({
   image,
-  name,
-  subtitle,
+  name = "Name",
+  subtitle = "Subtitle",
   className,
 }) => {
   return (
