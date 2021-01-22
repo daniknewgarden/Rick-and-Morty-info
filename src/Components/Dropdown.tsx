@@ -5,7 +5,7 @@ import { useClickOutside } from "../Hooks/useClickOutside";
 //Custom scrollbar
 import { Scrollbars } from "react-custom-scrollbars";
 
-type DropdownProps = {
+export type DropdownProps = {
   value: string;
   ariaLabel: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -35,10 +35,6 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   //useClickOutside hook, see docs https://github.com/daniknewgarden/amazing-react-hooks#useclickoutside-
   useClickOutside({ ref: menuRef, callback: toggleMenu, enabled: opened });
-
-  useEffect(() => {
-    opened ? console.log("Menu opened") : console.log("Menu closed");
-  }, [opened]);
 
   return (
     <div
