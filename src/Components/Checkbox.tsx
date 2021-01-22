@@ -2,7 +2,7 @@ import React from "react";
 //Styled components
 import styled from "styled-components";
 
-type CheckBoxProps = {
+export type CheckBoxProps = {
   onCheck: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   text: string;
@@ -18,7 +18,7 @@ type CheckBoxProps = {
 
 const Checkbox: React.FunctionComponent<CheckBoxProps> = ({
   name,
-  text,
+  text = "Label",
   onCheck,
   className,
   disabled,
