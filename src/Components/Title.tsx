@@ -7,7 +7,7 @@ type TitleProps = {
   text: string;
   // Custom styles
   className?: string;
-  size?: "big" | "small";
+  big?: boolean;
   color?: string;
 };
 
@@ -17,7 +17,7 @@ const Title: React.FC<TitleProps> = ({ text, className }) => (
 
 //Styles
 const sizes = {
-  small: css`
+  default: css`
     font-size: 50px;
     font-weight: 400;
   `,
@@ -28,7 +28,7 @@ const sizes = {
 };
 
 const StyledTitle = styled(Title)`
-  ${({ size = "big" }) => sizes[size]}
+  ${({ big = false }) => (big ? sizes["big"] : sizes["default"])}
 
   --color-text: ${({ color = "#000" }) => color};
 
