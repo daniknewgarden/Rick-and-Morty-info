@@ -4,7 +4,7 @@ import styled from "styled-components";
 //Custom scrollbar
 import { Scrollbars } from "react-custom-scrollbars";
 
-type ListCardProps = {
+export type ListCardProps = {
   title: string;
   listItems: Array<React.ReactElement>;
   // Custom styles
@@ -15,7 +15,11 @@ type ListCardProps = {
   colorBorder?: string;
 };
 
-const ListCard: React.FC<ListCardProps> = ({ title, className, listItems }) => {
+const ListCard: React.FC<ListCardProps> = ({
+  title = "Title",
+  className,
+  listItems,
+}) => {
   return (
     <div className={className}>
       <h2>{title}</h2>
