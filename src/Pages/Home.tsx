@@ -82,7 +82,11 @@ const HomePage: React.FC<HomePageTypes> = ({
 
   return (
     <div className="home-page">
-      <Title text="Search for characters" className="home-page__title" />
+      <Title
+        text="Search for characters"
+        className="home-page__title"
+        big={true}
+      />
       <Subtitle
         text='Search for all the characters from "Rick and Morty" and get information about them'
         className="home-page__subtitle"
