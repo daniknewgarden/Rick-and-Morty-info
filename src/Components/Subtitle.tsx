@@ -3,30 +3,31 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 //Component
-type SubtitleProps = {
+export type SubtitleProps = {
   text: string;
   // Custom styles
   className?: string;
-  size?: "big" | "small";
+  big?: boolean;
   color?: string;
 };
 
-const Subtitle: React.FC<SubtitleProps> = ({ text, className }) => (
-  <h2 className={className}>{text}</h2>
-);
+const Subtitle: React.FC<SubtitleProps> = ({
+  text = "Subtitle",
+  className,
+}) => <h2 className={className}>{text}</h2>;
 
 //Styles
 const sizes = {
   big: css`
     font-size: 16px;
   `,
-  small: css`
+  default: css`
     font-size: 14px;
   `,
 };
 
 const StyledSubtitle = styled(Subtitle)`
-  ${({ size = "big" }) => sizes[size]}
+  ${({ big = false }) => (big ? sizes["big"] : sizes["default"])}
 
   --color-text: ${({ color = "#555770" }) => color};
 
