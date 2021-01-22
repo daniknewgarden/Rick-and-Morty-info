@@ -96,17 +96,17 @@ const StyledButton = styled(Button)`
 
   --color: var(--color-main);
 
-    &:hover {
-      --color: var(--color-hover);
-    }
-    &:focus,
-    &:active {
-      outline: none;
-      --color: var(--color-focus);
-    }
-    &:disabled {
-      --color: var(--color-disabled);
-    };
+  &:hover {
+    --color: var(--color-hover);
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    --color: var(--color-focus);
+  }
+  &:disabled {
+    --color: var(--color-disabled);
+  }
 
   font-weight: 500;
 
