@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 //Styled components
 import styled from "styled-components";
 import { useClickOutside } from "../Hooks/useClickOutside";
