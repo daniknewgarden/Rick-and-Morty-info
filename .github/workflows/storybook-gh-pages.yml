@@ -25,6 +25,6 @@ jobs:
       - name: Build storybook
         run: |
           npm run build-storybook
-          npm run gh-pages -d storybook-static
+          npm run deploy-storybook
         env:
           CI: ""
