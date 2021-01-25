@@ -1,5 +1,6 @@
 {
-  "name": "booking",
+  "name": "rick-and-morty-info",
+  "homepage": "https://github.com/daniknewgarden/rick-and-morty-info",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +32,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -59,6 +59,7 @@
     "@storybook/addon-links": "^6.1.14",
     "@storybook/node-logger": "^6.1.14",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.14"
+    "@storybook/react": "^6.1.14",
+    "gh-pages": "^3.1.0"
   }
 }
