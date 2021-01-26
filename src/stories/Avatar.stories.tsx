@@ -70,4 +70,5 @@ WithImage.args = {
   name: "Avatar",
   subtitle: "With image",
   image: avatar,
+  avatarSize: "80px",
 };
