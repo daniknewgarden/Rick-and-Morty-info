@@ -7,7 +7,9 @@ on:
     branches: [main]
 
 jobs:
+#   Building code
   build:
+    name: Build 🏗
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }} 
+      - name: Use Node.js ${{ matrix.node-version }} 💻
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -26,24 +28,25 @@ jobs:
         run: npm run build
         env:
           CI: ""
-      - name: Archive Build 📚
+      - name: Archive build 📚
         uses: actions/upload-artifact@v2
         with:
           name: build
           path: build
 
+# Deployment
   deploy:
     name: Deploy 🚀
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download Build
+      - name: Download Build 💾
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
-      - name: Deploy to Firebase Hosting serve
+      - name: Deploy to Firebase Hosting serve 🕸
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
