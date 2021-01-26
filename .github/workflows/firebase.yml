@@ -41,9 +41,9 @@ jobs:
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
-          name: Build 🏗
+          name: build
           path: build
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting serve
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
