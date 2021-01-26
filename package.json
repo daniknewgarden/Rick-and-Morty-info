@@ -1,6 +1,5 @@
 {
   "name": "rick-and-morty-info",
-  "homepage": "https://github.com/daniknewgarden/rick-and-morty-info/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
