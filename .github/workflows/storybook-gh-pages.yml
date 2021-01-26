@@ -1,4 +1,4 @@
-name: Build and Deploy Storybook
+name: Deploy Storybook 📕
 on: [push]
 jobs:
   build-and-deploy:
