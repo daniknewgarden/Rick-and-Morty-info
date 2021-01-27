@@ -18,6 +18,10 @@ export default {
       type: { name: "string", required: false },
       description: "HTML input name attribute",
     },
+    onCheck: {
+      description: "Check event callback",
+      action: "checked",
+    },
     disabled: {
       type: { disabled: "boolean", required: false },
       description: "Disable checkbox",
