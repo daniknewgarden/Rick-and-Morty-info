@@ -35,6 +35,8 @@ const StyledAvatar = styled(Avatar)`
   --color-border: ${({ borderColor = "#ebebf0" }) => borderColor};
   --size-avatar: ${({ avatarSize = "80px" }) => avatarSize};
 
+  display: grid;
+  place-items: center;
   padding: 24px;
 
   h2,
