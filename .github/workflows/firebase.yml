@@ -1,14 +1,15 @@
-name: Firebase CI
+name: Main app Firebase CI 🚀
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
+#   Building code
   build:
-
+    name: Build 🏗
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,34 +18,35 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - name: Build code
-      run: npm run build
-      env: 
-        CI: ""
-    - name: Archive Build
-      uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: build
-        
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }} 💻
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - name: Build code ⚙
+        run: npm run build
+        env:
+          CI: ""
+      - name: Archive build 📚
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+
+# Deployment
   deploy:
-    name: Deploy
+    name: Deploy 🚀
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download Build
+      - name: Download Build 💾
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
-      - name: Depoy to Firebase Hosting
+      - name: Deploy to Firebase Hosting serve 🕸
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
