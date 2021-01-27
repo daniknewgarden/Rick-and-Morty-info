@@ -1,46 +1,121 @@
-# Getting Started with Create React App
+# Rick and Morty info app 🔍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Video](https://i.imgur.com/Zs8plxk.gif) <br/>
+[**See demo**](https://rick-and-morty-search.web.app/) <br/>
 
-## Available Scripts
+## Tools 🔧
 
-In the project directory, you can run:
+### Environment 👩‍💻
 
-### `yarn start`
+**For this project i'm using [create-react-app](https://create-react-app.dev/)**
 
-Runs the app in the development mode.\
+### Technologies 🐾
+
+    React (Typescript)
+    React router (history API)
+    React testing library
+    GraphQL (Apollo client 3)
+    Styled Components
+    Storybook
+
+## How to run 🏃‍♀️
+
+**After you cloned project install dependencies running `npm i`**
+
+### `npm start`
+
+Runs the app in the development mode. 🛠<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm test`
 
-### `yarn test`
+Launches the test runner in the interactive watch mode. 🧪<br />
+I'm using react-testing-library, [see docs](https://testing-library.com/docs/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm build`
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder. 🏗<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run storybook`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Runs storybook 🎨 on [http://localhost:6006/](http://localhost:6006/).
 
-### `yarn eject`
+### `npm build-storybook`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Builds static storybook docs 📚 for production to the `storybook-static` folder.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Components guide 🧩
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**All components docs you can see on the [Storybook](https://daniknewgarden.github.io/rick-and-morty-info/).**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Custom styles 🎨
 
-## Learn More
+You can add custom styles for components using `className` prop.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Example:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```JSX
+import React, { useState } from "react";
+import Subtitle from "../Components/Subtitle";
+import Title from "../Components/Title";
+
+const HomePage: React.FC<HomePageTypes> = () => (
+    <div className="home-page">
+      <Title
+        text="Search for characters"
+        className="home-page__title"
+        big={true}
+      />
+      <Subtitle
+        text='Search for all the characters from "Rick and Morty" and get information about them'
+        className="home-page__subtitle"
+      />
+    </div>
+);
+
+export default HomePage;
+```
+
+css:
+
+```css
+.home-page .home-page__title {
+  margin-bottom: 16px;
+}
+
+.home-page .home-page__subtitle {
+  margin-bottom: 64px;
+}
+```
+
+## GraphQL API interaction 🚀
+
+I'm using Apollo Client React for GraphQL interaction ([see docs](https://www.apollographql.com/docs/react/)).
+
+### Requests
+
+#### getCharacters.ts
+
+Using for searching character on the home page.
+
+Arguments:
+
+| Name |  type  |    description |
+| ---- | :----: | -------------: |
+| name | string | character name |
+
+<br/>
+
+#### getCharacterInfo.ts
+
+Using on the info page. Returns info about selected character.
+
+Arguments:
+
+| Name    |       type       |   description |
+| ------- | :--------------: | ------------: |
+| id      | number or string |  character id |
+| image   |     boolean      |    load image |
+| episode |     boolean      | load episodes |
+
