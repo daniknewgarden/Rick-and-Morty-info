@@ -18,6 +18,10 @@ export default {
       description: "Description for screen readers",
       defaultValue: "Click button",
     },
+    callBack: {
+      description: "Click event callback",
+      action: "clicked",
+    },
     big: {
       type: { big: "boolean", required: false },
       description: "Size",
