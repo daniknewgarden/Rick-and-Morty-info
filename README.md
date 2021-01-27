@@ -91,7 +91,7 @@ css:
 
 ## GraphQL API interaction 🚀
 
-I'm using Apollo Client React for GraphQL interaction ([see docs](https://www.apollographql.com/docs/react/)).
+I'm using Apollo Client React for GraphQL interaction ([see docs](https://www.apollographql.com/docs/react/)). There is the public [API on GitHub](https://github.com/arthurdenner/rick-and-morty-graphql-api) and [playground](https://rickandmortyapi.com/graphql).
 
 ### Requests
 
@@ -105,8 +105,6 @@ Arguments:
 | ---- | :----: | -------------: |
 | name | string | character name |
 
-<br/>
-
 #### getCharacterInfo.ts
 
 Using on the info page. Returns info about selected character.
@@ -118,4 +116,3 @@ Arguments:
 | id      | number or string |  character id |
 | image   |     boolean      |    load image |
 | episode |     boolean      | load episodes |
-
