@@ -3,7 +3,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 export type ButtonProps = {
-  callBack: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   text: string;
   ariaLabel: string;
   // Custom styles
@@ -26,10 +26,10 @@ const Button: React.FC<ButtonProps> = ({
   ariaLabel = "Click button",
   className,
   disabled,
-  callBack,
+  onClick,
 }) => (
   <button
-    onClick={callBack}
+    onClick={onClick}
     className={className}
     aria-label={ariaLabel}
     disabled={disabled}

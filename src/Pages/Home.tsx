@@ -115,7 +115,7 @@ const HomePage: React.FC<HomePageTypes> = ({
               />
             </div>
             <Button
-              callBack={handleHistory}
+              onClick={handleHistory}
               text="Get info"
               ariaLabel={"Submit button"}
             />

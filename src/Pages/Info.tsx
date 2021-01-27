@@ -79,7 +79,7 @@ const InfoPage: React.FC<InfoPageTypes> = ({
           </>
         )}
         <Button
-          callBack={() => history.push("/home")}
+          onClick={() => history.push("/home")}
           text="Back to choose"
           ariaLabel="Back"
           rounded={true}
