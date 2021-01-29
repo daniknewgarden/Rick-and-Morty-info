@@ -8,7 +8,7 @@ import ListCard from "../Components/ListCard";
 import Button from "../Components/Button";
 //GraphQL
 import { useQuery } from "@apollo/client";
-import GET_CHARACTER_INFO from "../GraphQL/getCharacterInfo";
+import GET_CHARACTER_INFO_QUERY from "../GraphQL/getCharacterInfoQuery";
 
 type InfoPageTypes = {
   id: string;
@@ -29,7 +29,7 @@ const InfoPage: React.FC<InfoPageTypes> = ({
 }) => {
   const history = useHistory();
 
-  const { data, loading, error } = useQuery(GET_CHARACTER_INFO, {
+  const { data, loading, error } = useQuery(GET_CHARACTER_INFO_QUERY, {
     variables: { id: id, image: loadImage, episode: loadEpisode },
   });
 

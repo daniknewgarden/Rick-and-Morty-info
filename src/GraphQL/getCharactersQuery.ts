@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const GET_CHARACTERS = gql`
+const GET_CHARACTERS_QUERY = gql`
   query getCharacters($name: String) {
     characters(filter: { name: $name }) {
       results {
@@ -12,4 +12,4 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-export default GET_CHARACTERS;
+export default GET_CHARACTERS_QUERY;

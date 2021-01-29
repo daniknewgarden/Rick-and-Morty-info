@@ -10,7 +10,7 @@ import Subtitle from "../Components/Subtitle";
 import Title from "../Components/Title";
 //GraphQL
 import { useQuery } from "@apollo/client";
-import GET_CHARACTERS from "../GraphQL/getCharacters";
+import GET_CHARACTERS_QUERY from "../GraphQL/getCharactersQuery";
 
 //Props types
 type HomePageTypes = {
@@ -44,7 +44,7 @@ const HomePage: React.FC<HomePageTypes> = ({
   const [searchInputValue, setSearchInputValue] = useState("");
 
   //Graphql data
-  const { data, loading } = useQuery(GET_CHARACTERS, {
+  const { data, loading } = useQuery(GET_CHARACTERS_QUERY, {
     variables: { name: searchInputValue, image: false },
   });
 
