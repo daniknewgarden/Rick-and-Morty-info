@@ -13,7 +13,7 @@ import { useQuery } from "@apollo/client";
 import GET_CHARACTERS_QUERY from "../GraphQL/getCharactersQuery";
 
 //Props types
-type HomePageTypes = {
+export type HomePageTypes = {
   selectedCharacter: string | null;
   setCharacterId: (id: string) => void;
   setLoadImage: (value: boolean) => void;
@@ -21,7 +21,7 @@ type HomePageTypes = {
 };
 
 //API call types
-type Character = {
+export type Character = {
   id: string;
   name: string;
   status: "Alive" | "Dead" | "unknown";
