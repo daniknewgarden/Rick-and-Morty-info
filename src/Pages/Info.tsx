@@ -43,7 +43,7 @@ const InfoPage: React.FC<InfoPageTypes> = ({
       setLoadImage(false);
       setLoadEpisode(false);
     };
-  }, []);
+  }, [setCharacterId, setLoadEpisode, setLoadImage]);
 
   return (
     <div className="info-page">

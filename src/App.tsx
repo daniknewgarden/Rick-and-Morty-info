@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     history.push("/home");
-  }, []);
+  }, [history]);
 
   //States
   const [characterId, setCharacterId] = useState<string | null>(null);
