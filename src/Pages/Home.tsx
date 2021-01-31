@@ -98,7 +98,7 @@ const HomePage: React.FC<HomePageTypes> = ({
           listItems={
             Items ? Items : loading ? "Loading..." : "Nothing found :("
           }
-          ariaLabel="Search hotel"
+          ariaLabel="Search character"
         />
         {selectedCharacter && (
           <>
