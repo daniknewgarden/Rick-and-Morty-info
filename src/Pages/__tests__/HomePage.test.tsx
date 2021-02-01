@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 //GraphQL
@@ -102,25 +102,5 @@ describe("HomePage component", () => {
     expect(imageCheckbox).toBeInTheDocument();
     expect(episodeCheckbox).toBeInTheDocument();
     expect(submitButton).toBeInTheDocument();
-  });
-
-  it("Check routing", () => {
-    const history = createMemoryHistory();
-
-    const { getByLabelText } = render(
-      <Router history={history}>
-        <MockedProvider mocks={mocks} addTypename={false}>
-          <HomePage
-            selectedCharacter={"1"}
-            setCharacterId={setCharacterId}
-            setLoadImage={setLoadImage}
-            setLoadEpisode={setLoadEpisode}
-          />
-        </MockedProvider>
-      </Router>
-    );
-
-    const submitButton = getByLabelText("Submit button");
-    userEvent.click(submitButton);
   });
 });
