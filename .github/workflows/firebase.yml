@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-#   Building code
+  #   Building code
   build:
     name: Build 🏗
     runs-on: ubuntu-latest
@@ -24,6 +24,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - name: Test code 🔬
+        run: npm run test
       - name: Build code ⚙
         run: npm run build
       - name: Archive build 📚
@@ -32,7 +34,7 @@ jobs:
           name: build
           path: build
 
-# Deployment
+  # Deployment
   deploy:
     name: Deploy 🚀
     needs: build
