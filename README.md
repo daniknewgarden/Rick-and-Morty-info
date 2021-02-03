@@ -116,3 +116,8 @@ Arguments:
 | id      | number or string |  character id |
 | image   |     boolean      |    load image |
 | episode |     boolean      | load episodes |
+
+## Deployment
+
+On this project is configured CI with deployment to [Firebase hosting](https://firebase.google.com/docs/hosting) for main app, and deployment to GitHub Pages for storybook docs.
+
